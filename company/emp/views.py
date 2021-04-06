@@ -8,7 +8,11 @@ def add_show(request):
     if request.method =='POST':
         fm =employeeform(request.POST)
         if fm.is_valid():
-          fm.save()
+            nm = fm.cleaned_data['name']
+            em = fm.cleaned_data['email']
+            rl = fm.cleaned_data['roll']
+            reg = employee(name=nm,email=em,roll=rl)
+            reg.save()
     else:
         fm = employeeform()
     return render(request, 'enroll/addandshow.html',{'form':fm})

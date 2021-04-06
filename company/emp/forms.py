@@ -1,11 +1,14 @@
 from django.core import validators
+from django.forms import ModelForm
 from django import forms
-from .models import employee
+from emp.models import employee,skill
 
 class employeeform(forms.ModelForm):
     class Meta:
         model = employee
         fields = ['name','email','skill','roll']
+     
+      
         widgets = {
                'name' : forms.TextInput(attrs={'class':'form-control'}),
                'email' : forms.EmailInput(attrs={'class':'form-control'}),
