@@ -14,7 +14,7 @@ class employee(models.Model):
         )
     name=models.CharField(max_length=50)
     email=models.CharField(max_length=90)
-    skill=models.ForeignKey(skill, on_delete=models.CASCADE)
+    skill=models.ManyToManyField(skill, on_delete=models.CASCADE)
     roll=models.CharField(max_length=1, choices=Roll)
     def __str__(self):
         return self.name
