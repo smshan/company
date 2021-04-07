@@ -23,6 +23,15 @@ class team(models.Model):
     team_name=models.CharField(max_length=50)
     team_leader_id=models.ForeignKey(employee,  on_delete=models.CASCADE)
 
+class EmpSkill(models.Model):
+     Roll=(
+        ('D','Developer'),
+        ('T','Tester')
+        )
+     name=models.ForeignKey(employee, related_name='%(class)s_name',on_delete=models.CASCADE)
+     email=models.ForeignKey(employee, related_name='%(class)s_email',on_delete=models.CASCADE)
+     skill=models.ForeignKey(skill,related_name='%(class)s_skill',on_delete=models.CASCADE)
+     roll=models.ForeignKey(employee, related_name='%(class)s_roll',choices=Roll,on_delete=models.CASCADE)
 
 
 

@@ -1,11 +1,11 @@
 from django.core import validators
 from django.forms import ModelForm
 from django import forms
-from emp.models import employee,skill
+from emp.models import employee,skill,EmpSkill
 
 class employeeform(forms.ModelForm):
     class Meta:
-        model = employee
+        model = EmpSkill
         fields = ['name','email','skill','roll']
      
       
@@ -17,6 +17,4 @@ class employeeform(forms.ModelForm):
             
         }
    
-
-
 
