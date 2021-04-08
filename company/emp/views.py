@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from django.template.response   import TemplateResponse
 from django.http import HttpResponse
-from.forms import employeeform
-from .models import employee,skill
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from django.views.generic import ListView
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+
+from.forms import EmployeeRegistration
+from .models import employee,skills
 # Create your views here.
-def add_show(request):
-    if request.method =='POST':
-        fm =employeeform(request.POST)
-        if fm.is_valid():
-            nm = fm.cleaned_data['name']
-            em = fm.cleaned_data['email']
-            rl = fm.cleaned_data['roll']
-            reg = employee(name=nm,email=em,roll=rl)
-            reg.save()
-    else:
-        fm = employeeform()
-    return render(request, 'enroll/addandshow.html',{'form':fm})
+def home(request):
+    form = EmployeeRegistration()
+    return render(request,'enroll/home.html',{'form':form})

@@ -19,5 +19,5 @@ from emp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.add_show,name='add_show'),
+    path('',views.home,name='home'),
 ]

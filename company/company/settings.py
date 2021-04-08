@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'DATA_UPLOAD_MAX_NUMBER_FIELDS'
+  
 ]
 
 ROOT_URLCONF = 'company.urls'

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale=1.0 "/>
+        <title>Employee Registeration</title>
+    </head>
+    <body>
+        <div>
+            <h2>Employee Details</h2>
+            <div class="row ">
+                <div class="col-sm-4 ">
+                    <h4 class="text-center alter alter-info ">Add
+                        Employee</h4>
+                        <form action=" " method="post ">{% csrf_token %} {{form.as_p}}
+                            <input type="button " class="btn btn-success "  id= "btnsave " value="save ">
+            
+                        </form>
+                    </div>
+            </div>
+            
+        </div>
+       
+        <script src="{% static 'enroll/js/jquery.js' %} "></script>
+        <script src="{% static 'enroll/js/poper.js' %} "></script>
+        <script src="{% static 'enroll/js/bootstrap.js' %} "></script>
+    </body>
+</html>
