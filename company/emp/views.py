@@ -6,9 +6,9 @@ from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
-from.forms import EmployeeRegistration
+
 from .models import employee,skills
 # Create your views here.
 def home(request):
-    form = EmployeeRegistration()
-    return render(request,'enroll/home.html',{'form':form})
+    form = employee()
+    return render(request,'enroll/base.html',{'form':form})

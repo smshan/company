@@ -11,14 +11,40 @@
 <body>
     <div class="container mt-5">
         <h2 class="text-center alter alter-danger"> Employee Delatils </h2>
-        {% block content %} {% endblock content %}
+        {% block content %}
+        <div class="row">
+            <div class="col-sm-4">
+                <h4 class="text-center alert alert-info">Add New Employee</h4>
+                <form class="<form class=" form-inline ">
+                    {% csrf_token %} 
+                    <div class="form-group ">
+                       <label for="name ">Name</label>
+                       <input type="text " name="name "  class="form-control " placeholder="Enter Name " >
+                       <label for="email ">Email</label>
+                       <input type="text " name="email " class="form-control " placeholder="Enter Email ">
+                       <label for="skill ">Skill</label>
+                       <input type="text " name="skill " class="form-control " placeholder="Enter Your Skill ">
+                       <label for=roll>Roll</label>
+                       <select class="form-select " id="roll " name="roll ">
+                        <option value="volvo ">Developer</option>
+                        <option value="saab ">Tester</option>
+                        </select>
+                        <br><br>
+                       <input type="submit " class="btn btn-success " value="Add ">
+                    </div>
+        
+              
+                </form>
+            </div>
+        </div>
+        {% endblock content %}
     </div>
 
 
 
-    <script src="{% static 'entoll/js/jquery.js' %}"></script>
-    <script src="{% static 'entoll/js/popper.js' %}"></script>
-    <script src="{% static 'entoll/js/bootstrap.js' %}"></script>
+    <script src="{% static 'entoll/js/jquery.js' %} "></script>
+    <script src="{% static 'entoll/js/popper.js' %} "></script>
+    <script src="{% static 'entoll/js/bootstrap.js' %} "></script>
 </body>
 
 </html>
