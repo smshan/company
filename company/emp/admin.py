@@ -1,13 +1,7 @@
 from django.contrib import admin
+ 
+from .models import employee
 
-
-#Register your models here.
-
-#admin.site.register(team)
-
-#@admin.register(employee,skills)
-
-
-#class EmployeeAdmin(admin.ModelAdmin):  list_display = ('name','email','skill','roll')
+admin.site.register(employee)
 
 

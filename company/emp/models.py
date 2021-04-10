@@ -11,14 +11,20 @@ class employee(models.Model):
     email=models.CharField(max_length=90)
     skill=models.CharField(max_length=50)
     roll=models.CharField(max_length=1,choices=Roll)
+    def __str__(self):
+        return self.name
  
 
 class skills(models.Model):
-    skills=models.ManyToManyField(employee)
+    skill=models.ManyToManyField(employee)
+    def __str__(self):
+        return self.skill
 
 class team(models.Model):
     team_name=models.CharField(max_length=50)
     team_leader_id=models.ForeignKey(employee,  on_delete=models.CASCADE)
+    def __str__(self):
+        return self.team_name
 
 
 
