@@ -19,11 +19,14 @@
                     {% csrf_token %} 
                     <div class="form-group ">
                        <label for="name ">Name</label>
-                       <input type="text " name="name "  class="form-control " placeholder="Enter Name " >
+                       <input type="text " name="name "  class="form-control " placeholder="Enter Name " ><br>
                        <label for="email ">Email</label>
-                       <input type="text " name="email " class="form-control " placeholder="Enter Email ">
-                       <label for="skill ">Skill</label>
-                       <input type="text " name="skill " class="form-control " placeholder="Enter Your Skill ">
+                       <input type="text " name="email " class="form-control " placeholder="Enter Email "><br>
+                       <select class="form-select " multiple="multiple " name="services " id="services " size="5 " >
+                        {% for skill in skills %}
+                            <option value="{{skill.id}} ">{{skill}}</option>
+                        {% endfor %}
+                       </select><br>
                        <label for=roll>Roll</label>
                        <select class="form-select " id="roll " name="roll ">
                         <option value="volvo ">Developer</option>
