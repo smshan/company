@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from  emp import views 
+from  emp import views
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
 
 
 urlpatterns = [
@@ -23,3 +24,6 @@ urlpatterns = [
     path('',views.addemployee,name='addemployee')
 
 ]
+
+
+urlpatterns+=staticfiles_urlpatterns()
