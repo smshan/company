@@ -10,18 +10,15 @@
 </heade>
 
 <body>
-    <script src="{% static 'entoll/js/jquery.js' %}"></script>
-    <script src="{% static 'entoll/js/popper.js' %}"></script>
-    <script src="{% static 'entoll/js/bootstrap.min.js' %}"></script>
-    {% include "enroll/ajax.html" %}
+
     <div class="container mt-5">
         <h2 class="text-center alter alter-danger"> Employee Delatils </h2>
-        {% block content %}
+
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4">s
                 <h4 class="text-center alert alert-info">Add New Employee</h4>
-                <form class="form class= form-inline ">
-                    {% csrf_token %}
+                <form action="" method="POST">
+                    {% csrf_token %} {{form.as_p}}
                     <div class="form-group ">
                         <label for="name ">Name</label>
                         <input type="text " name="name " id="name" class="form-control " placeholder="Enter Name "><br>
@@ -34,8 +31,9 @@
                        </select><br>
                         <label for=roll>Roll</label>
                         <select class="form-select " id="roll " name="roll ">
-                        <option value="developer ">Developer</option>
-                        <option value="tester ">Tester</option>
+                            {% for r in em %}
+                        <option value="developer ">{{r.roll}}</option>
+                        % endfor %}
                         </select>
                         <br><br>
 
@@ -76,10 +74,12 @@
                 </table>
             </div>
         </div>
-        {% endblock content %}
     </div>
 
-
+    <script src="{% static 'enroll/js/jquery.js' %}"></script>
+    <script src="{% static 'enroll/js/popper.js' %}"></script>
+    <script src="{% static 'enroll/js/bootstrap.min.js' %}"></script>
+    {% include "enroll/ajax.html" %}
 
 
 </body>

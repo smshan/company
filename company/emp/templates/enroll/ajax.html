@@ -1,13 +1,25 @@
 <script>
-    $("#btnsave").click(function() {
-        console.log("Save Button Clicked");
+    $(document).ready(function() {
+        $("#btnsave").click(function() {
+            console.log("Save Button Clicked");
+            let nm = $("#name").val();
+            let em = $("#email").val();
+            let sk = $("#skill").val();
+            let rl = $("#roll").val();
+            if (nm == "") {
+                console.log("plese Enter Name")
+            } else if (em == "") {
+                console.log("please Enter Email")
+            } else if (sk == "") {
+                console.log("plese Enter Your Skills")
+            } else if (rl == "") {
+                ("plese Enter Your Roll")
+            } else {
+                console.log(nm);
+                console.log(em);
+                console.log(sk);
+                console.log(rl);
+            }
+        });
     });
-    let nm = $("#name").val()
-    let em = $("#email").val()
-    let sk = $("#skill").val()
-    let rl = $("#roll").val()
-    console.log(nm);
-    console.log(em);
-    console.log(sk);
-    console.log(rl);
 </script>
