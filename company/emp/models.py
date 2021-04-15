@@ -17,8 +17,8 @@ class employee(models.Model):
 
 class skills(models.Model):
     skill=models.ManyToManyField(employee)
-    def __str__(self):
-        return self.skill
+    class Meta:
+        db_table="skills"
 
 class team(models.Model):
     team_name=models.CharField(max_length=50)

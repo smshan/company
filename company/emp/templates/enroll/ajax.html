@@ -13,12 +13,22 @@
             } else if (sk == "") {
                 console.log("plese Enter Your Skills")
             } else if (rl == "") {
-                ("plese Enter Your Roll")
+                console.log("plese Enter Your Roll")
             } else {
-                console.log(nm);
-                console.log(em);
-                console.log(sk);
-                console.log(rl);
+                mydata = {
+                    name: nm,
+                    email: em,
+                    skill: sk,
+                    roll: rl
+                };
+                $.ajax({
+                    url: "{% url 'save' %}",
+                    method: "POST",
+                    data: mydata,
+                    success: function(data) {
+                        console.log(data);
+                    },
+                });
             }
         });
     });
