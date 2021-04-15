@@ -18,9 +18,9 @@ def save_data(request):
             rl = request.POST["roll"]
             data = employee(name=nm,email=em,skill=sk,roll=rl)
             data.save()
-            return JsonResponse({'status':'save'})
+            return JsonResponse({'status' : 'save'})
         else:
-            return JsonResponse({'status':0})
+            return JsonResponse({'status' : 0})
 
 
     
