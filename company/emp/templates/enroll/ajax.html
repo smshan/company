@@ -2,31 +2,40 @@
     $(document).ready(function() {
         $("#btnsave").click(function() {
             console.log("Save Button Clicked");
-            let nm = $("#name").val();
-            let em = $("#email").val();
-            let sk = $("#skill").val();
-            let rl = $("#roll").val();
+            let nm = $("#nameid").val();
+            let em = $("#emailid").val();
+            let sk = $("#skillid").val();
+            let rl = $("#rollid").val();
+            let csr = $("input[name=csrfmiddlewaretoken").val();
             if (nm == "") {
-                console.log("plese Enter Name")
+                console.log("plese Enter Name");
             } else if (em == "") {
-                console.log("please Enter Email")
+                console.log("please Enter Email");
             } else if (sk == "") {
-                console.log("plese Enter Your Skills")
+                console.log("plese Enter Your Skills");
             } else if (rl == "") {
-                console.log("plese Enter Your Roll")
+                console.log("plese Enter Your Roll");
             } else {
                 mydata = {
                     name: nm,
                     email: em,
                     skill: sk,
-                    roll: rl
+                    roll: rl,
+                    csrfmiddlewaretoken: csr
                 };
                 $.ajax({
-                    url: "{% url 'save' %}",
-                    type: "POST",
+                    url: "{% url 'save_data' %}",
+                    method: "POST",
                     data: mydata,
                     success: function(data) {
-                        console.log(data.status);
+                        console.log(data);
+                        if (data.status == "save") {
+                            console.log("Form Submitted successfully");
+                            $("foem")[0].reset();
+                        }
+                        if (data.status == 0) {
+                            console.log("Unable to save")
+                        }
                     },
                 });
             }
