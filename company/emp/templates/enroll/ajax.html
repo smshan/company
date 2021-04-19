@@ -3,6 +3,7 @@
         $("#btnsave").click(function() {
             console.log("Save Button Clicked");
             output = "";
+            let empid = $("#empid").val();
             let nm = $("#nameid").val();
             let em = $("#emailid").val();
             let sk = $("#skillid").val();
@@ -18,6 +19,7 @@
                 console.log("plese Enter Your Roll");
             } else {
                 mydata = {
+                    empid: empid,
                     name: nm,
                     email: em,
                     skill: sk,
@@ -28,6 +30,7 @@
                     url: "{% url 'save_data' %}",
                     method: "POST",
                     data: mydata,
+                    dataType: "json",
                     success: function(data) {
                         //console.log(data);
                         x = data.employee_data
@@ -74,12 +77,50 @@
                 sid: id,
                 csrfmiddlewaretoken: csr
             };
+            mythis = this;
             $.ajax({
                 url: "{% url 'delete_data' %}",
                 method: "POST",
                 data: mydata,
                 success: function(data) {
-                    console.log(data);
+                    // console.log(data);
+                    if (data.status == 1) {
+                        console.log("Data Deleted Successfully");
+                        $(mythis).closest("tr").fadeOut();
+                    }
+                    if (data.status == 0) {
+                        console.log("Unable to Deleted Data");
+                    }
+                },
+            });
+
+        });
+    });
+
+    //edit data
+
+    $(document).ready(function() {
+        $("#tbody").on("click", ".btn-edit", function() {
+            console.log("Edit Button Clicked");
+            let id = $(this).attr("data-sid");
+            let csr = $("input[name=csrfmiddlewaretoken").val();
+            console.log(id);
+            mydata = {
+                sid: id,
+                csrfmiddlewaretoken: csr
+            };
+            $.ajax({
+                url: "{% url 'Edit_data' %}",
+                method: "POST",
+                data: mydata,
+                dataType: "json",
+                success: function(data) {
+                    // console.log(data);
+                    $("#empid").val(data.id);
+                    $("#nameid").val(data.name);
+                    $("#emailid").val(data.email);
+                    $("#skillid").val(data.skill);
+                    $("#rollid").val(data.roll);
                 },
             });
 

@@ -28,7 +28,8 @@
             <div class="col-sm-4">
                 <h4 class="text-center alert alert-info">Add New Employee</h4>
                 <form action="" method="POST" class="post-form" enctype="multipart/form-data">
-                    {% csrf_token %} {{form.as_p}}{{form.em}}{{form.error}}{{ form.non_field_errors }}
+                    {% csrf_token %}
+                    <input type="hidden" name="empid" id="empid" /> {{form.as_p}}
 
                     <input type="button" class="btn btn-success" id="btnsave" value="save" />
                 </form>
@@ -56,8 +57,8 @@
                             <td>{{e.skill}}</td>
                             <td>{{e.roll}}</td>
                             <td>
-                                <input type="button" data-sid="{{st.id}}" class="btn btn-warning btn-sm btn-edit" value="Edit" />
-                                <input type="button" data-sid="{{st.id}}" class="btn btn-danger btn-sm btn-del" value="Delete" />
+                                <input type="button" data-sid="{{e.id}}" class="btn btn-warning btn-sm btn-edit" value="Edit" />
+                                <input type="button" data-sid="{{e.id}}" class="btn btn-danger btn-sm btn-del" value="Delete" />
                             </td>
                         </tr>
                         {% endfor %}

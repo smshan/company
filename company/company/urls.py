@@ -24,6 +24,7 @@ urlpatterns = [
     path('',views.addemployee,name='addemployee'),
     path('save_data/',views.save_data,name='save_data'),
     path('delete_data/',views.delete_data,name='delete_data'),
+     path('Edit_data/',views.Edit_data,name='Edit_data'),
 
 ]
 
