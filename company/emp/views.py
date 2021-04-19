@@ -21,12 +21,22 @@ def save_data(request):
             usr = employee(name=name,email=email,skill=skill,roll=roll)
             form.save()
             emp = employee.objects.values()
-            print(emp)
+           ## print(emp)
             employee_data = list(emp)
             return JsonResponse({'status' : 'save' ,'employee_data': employee_data})
         else:
             return JsonResponse({'status' : 0})
            
+#delete data
+def delete_data(request):
+    if request.method == "POST":
+        id = request.POST.get('sid')
+        print(id)
+        pi = employee.objects.get(pk=id)
+        pi.delete()
+        return JsonResponse({'status':1})
+    else:
+        return JsonResponse({'status':0})
            
            
            
