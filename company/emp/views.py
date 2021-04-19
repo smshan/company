@@ -8,7 +8,7 @@ from .models import employee
 def addemployee(request):
     emp = employee.objects.all()
     fm = EmployeeRegistration()
-    return render(request,'enroll/base.html',{'form':fm,'em': emp})
+    return render(request,'enroll/updateemployee.html',{'form':fm,'em': emp})
 #@csrf_exempt
 def save_data(request):
     form= EmployeeRegistration(request.POST)
